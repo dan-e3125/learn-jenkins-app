@@ -83,10 +83,6 @@ pipeline {
                 }
             }
 
-            environment {
-                CI_ENVIRONMENT_URL = 'https://helpful-piroshki-ada389.netlify.app'
-            }
-
             steps {
                 sh '''
                     npm install netlify-cli
@@ -105,6 +101,11 @@ pipeline {
                     reuseNode true
                 }
             }
+
+            environment {
+                CI_ENVIRONMENT_URL = 'https://helpful-piroshki-ada389.netlify.app'
+            }
+
             steps {
                 sh '''
                     npx playwright test --reporter=html
