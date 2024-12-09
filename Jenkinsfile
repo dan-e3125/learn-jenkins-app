@@ -43,7 +43,7 @@ pipeline {
                 sh 'docker build -t myjenkinsapp .'
             }
         }
-    }
+    
         stage('Deploy to AWS') {
             agent {
                 docker {
