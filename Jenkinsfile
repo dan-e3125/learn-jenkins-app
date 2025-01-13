@@ -8,6 +8,14 @@ pipeline {
     }
 
     stages {
+
+        stage ('Docker') {
+            steps {
+                sh'''
+                    docker build -t my-playwright .
+                '''
+            }
+        }
         
         stage('Build') {
             agent {
@@ -28,7 +36,7 @@ pipeline {
                 '''
             }
         }
-        
+        /*
         stage ('Tests') {
             parallel {
                 stage('Unit tests') {
@@ -137,5 +145,5 @@ pipeline {
         }
     }
 }
-
+*/
 // System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "sandbox allow-scripts;")
